@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon  ./bin/www"
+    "start": "node  ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -20,8 +20,7 @@
     "nodemailer": "^6.3.0",
     "nodemon": "^1.19.1"
   },
-    "engines": {
-      "node": "v12.11.1"
-}
-
+  "engines": {
+    "node": "v12.11.1"
+  }
 }
