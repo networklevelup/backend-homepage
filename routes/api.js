@@ -7,8 +7,6 @@ let md5 = require("md5");
 let nodemailer = require("nodemailer");
 const ig = require("instagram-node").instagram();
 
-/* const secret = "mysecret"; */
-
 /* Route to verify token */
 router.post("/auth", (request, response) => {
   const query = global.dbo.collection("Admin").find({
