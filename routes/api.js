@@ -314,7 +314,7 @@ router.get("/instagram", function(req, res) {
 });
 // configure instagram app with your access_token
 ig.use({
-  access_token: "12026791675.1e7b180.cbe49b2273344fa7b98fa80c1d3a1205"
+  access_token: process.env.IGACCESS_TOKEN
 });
 
 module.exports = router;
