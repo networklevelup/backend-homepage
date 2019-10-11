@@ -22,7 +22,7 @@ router.post("/auth", (request, response) => {
           isAdmin: documents[0].isAdmin ? true : false,
           id: documents[0]._id
         },
-        documents[0].secret,
+        process.env.JWT_SECRET,
         {
           expiresIn: 3600
         }
@@ -138,21 +138,21 @@ router.post("/users", async (request, response) => {
                       .send(res.ops[0]); /* res.ops[0] show the new document*/
                     let transporter = nodemailer.createTransport({
                       /* Library to send a email registration */
-                      service: "exchange",
-                      host: 'smtp.office365.com',
+                      service: process.env.MAIL_SERVICE,
+                      host: process.env.MAIL_HOST_SERVICE,
                       secure: false,
                       port: 25,
                       auth: {
-                        user: result[0].email,
+                        user: process.env.MAIL_USER,
                         /* Who send the email, its saved in database*/
-                        pass: result[0].emailPass
+                        pass: process.env.MAIL_PASS
                       },
                       tls: {
                         rejectUnauthorized: false
                       }
                     });
                     let message = {
-                      from: "info@network-levelup.com",
+                      from: process.env.MAIL_MESSAGE_FROM,
                       to: request.body.email,
                       subject: "Welcome to Level UP",
                       text: "Thank you for join at team LevelUp",
