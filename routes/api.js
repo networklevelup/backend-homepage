@@ -9,8 +9,8 @@ const ig = require("instagram-node").instagram();
 
 /* Route to verify token */
 router.post("/auth", (request, response) => {
-  const query = global.dbo.collection("Admin").find({
-    first_name: request.body.u,
+  const query = global.dbo.collection("talentUsers").find({
+    email: request.body.e,
     pass: md5(request.body.p)
   });
 
@@ -18,7 +18,7 @@ router.post("/auth", (request, response) => {
     if (documents.length > 0) {
       var token = jwt.sign(
         {
-          first_name: documents[0].first_name,
+          email: documents[0].email,
           isAdmin: documents[0].isAdmin ? true : false,
           id: documents[0]._id
         },
@@ -175,7 +175,7 @@ router.post("/users", async (request, response) => {
                         <div class="container">
                             <h1>Bienvenido a LevelUP!</h1>
                             <p><strong>Por favor, confirme su dirección de correo electrónico haciendo clic en el siguiente enlace:</strong></p>
-                            <p><a href="http://localhost:3000/verify/${res.ops[0]._id}">Confirmar email</a></p>
+                            <p><a href="https://front-levelup.herokuapp.com/verify/${res.ops[0]._id}">Confirmar email</a></p>
                                                                         
                             <p>Esto nos da permiso para enviarle correos electrónicos con más información sobre LevelUP
                                     ,por ejemplo: anuncios de empleo, blogs, etc.</p>

@@ -169,7 +169,7 @@ router.post("/", async (request, response) => {
                               <p><strong>Bitte bestätige deine E-Mail-Adresse mit dem Klick auf den folgenden Link:
                                       </strong></p>
                               
-                              <p><a href="http://localhost:3000/verify/companies/${res.ops[0]._id}">Click</a></p>
+                              <p><a href="https://front-levelup.herokuapp.com/verify/companies/${res.ops[0]._id}">Click</a></p>
                               <p>Damit erteilst du uns die Erlaubnis, dass wir dir E-Mails mit weiteren Informationen zu LevelUP
                                       schicken dürfen (z.B. Stellenanzeigen, Blogeinträge, etc.).</p>
                               <p><u>Das Wichtigste zuerst:
