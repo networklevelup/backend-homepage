@@ -11,7 +11,7 @@ let apiRouter = require("./routes/api");
 let apiBlog = require("./routes/apiBlog");
 let apiBlogPicture = require("./routes/apiBlogPicture");
 let apiCompanies = require("./routes/apiCompanies");
-let apiLinkedin = require("./routes/apiLinkedin");
+
 
 const app = express();
 
@@ -37,7 +37,7 @@ app.use("/api", apiRouter);
 app.use("/apiBlog", apiBlog);
 app.use("/apiBlogPicture", apiBlogPicture);
 app.use("/apiCompanies", apiCompanies);
-app.use("./apiLinkedin", apiLinkedin);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
