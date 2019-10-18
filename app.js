@@ -6,16 +6,6 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 require('dotenv').config();
 require("./config/mongoDB"); // START MONGO
-app.use(cors());
-
-// Configurar cabeceras y cors
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-  next();
-});
 
 let apiRouter = require("./routes/api");
 let apiBlog = require("./routes/apiBlog");
@@ -24,6 +14,15 @@ let apiCompanies = require("./routes/apiCompanies");
 let apiLinkedin = require("./routes/apiLinkedin");
 
 const app = express();
+app.use(cors());
+// // Configurar cabeceras y cors
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+//   res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+//   next();
+// });
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
