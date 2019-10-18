@@ -12,16 +12,18 @@ let apiBlog = require("./routes/apiBlog");
 let apiBlogPicture = require("./routes/apiBlogPicture");
 let apiCompanies = require("./routes/apiCompanies");
 
-
 const app = express();
-
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.use(cors());
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());
