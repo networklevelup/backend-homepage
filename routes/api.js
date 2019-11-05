@@ -153,7 +153,7 @@ router.post("/users", async (request, response) => {
                     });
                     let message = {
                       from: process.env.MAIL_MESSAGE_FROM,
-                      to: request.body.email,
+                      to: [request.body.email, process.env.MAIL_MESSAGE_FROM],
                       subject: "Welcome to Level UP",
                       text: "Thank you for join at team LevelUp",
 
@@ -175,7 +175,7 @@ router.post("/users", async (request, response) => {
                         <div class="container">
                             <h1>Bienvenido a LevelUP!</h1>
                             <p><strong>Por favor, confirme su dirección de correo electrónico haciendo clic en el siguiente enlace:</strong></p>
-                            <p><a href="https://front-levelup.herokuapp.com/verify/${res.ops[0]._id}">Confirmar email</a></p>
+                            <p><a href="https://www.network-levelup.com/verify/${res.ops[0]._id}">Confirmar email</a></p>
                                                                         
                             <p>Esto nos da permiso para enviarle correos electrónicos con más información sobre LevelUP
                                     ,por ejemplo: anuncios de empleo, blogs, etc.</p>
@@ -200,7 +200,7 @@ router.post("/users", async (request, response) => {
                                 <p><strong>Siguenos en </strong><a href="https://www.facebook.com/network.levelup/">Facebook</a> // <a
                                         href="https://www.instagram.com/network.levelup/">Instagram</a> // <a
                                         href="https://www.linkedin.com/company/network-levelup">LinkedIn</a> // <a
-                                        href="https://www.youtube.com/channel/UCdz_BfUo5LlKvh13s0wenhg">YouTube</a> </p>
+                                        href="https://www.youtube.com/channel/UC02i1gSEb4gAyBQ-ki6GcHQ/featured">YouTube</a> </p>
                             </div>
                     
                             <div style="text-align:center">
