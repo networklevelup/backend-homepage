@@ -317,4 +317,34 @@ ig.use({
   access_token: process.env.IGACCESS_TOKEN
 });
 
+router.post("/talents/profile/:id",(request, response) => {
+  const id = request.params.id;
+  const obj = {
+    talentId: id,
+    worksAreas: request.body.worksAreas,
+    levelExp: request.body.levelExp,
+    locations: request.body.locations,
+    spanishSkills: request.body.spanishSkills,
+    englishSkills: request.body.englishSkills,
+    germanSkills: request.body.germanSkills,
+    futherLanguageSkills: request.body.furtherLanguageSkills,
+    furtherLanguage: request.body.furtherLanguage
+  }
+  global.dbo.collection("talentProfile")
+  // .findOne({ talentId: id }, (err, result) => {
+  //   if(result){
+  //     response.send("Ya registrado");
+  //   }
+  //   if (!result) {
+  //     global.dbo
+  //       .collection("talentProfile")
+        .insertOne(obj, function(err, res) {
+          if (err) throw err;
+          response.send(res);
+      });
+     })
+// });
+
+
+
 module.exports = router;
